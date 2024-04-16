@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { Link } from "react-router-dom";
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from 'react-redux';
 import { addUser } from "./UserReducer";
@@ -15,7 +14,8 @@ function Create(){
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        dispatch(addUser({id: users[users.length - 1].id + 1, name, email}));
+        const nextId = users.length === 0 ? 1 : users[users.length - 1].id + 1;
+        dispatch(addUser({id: nextId, name, email}));
         navigate('/')
     }
 
