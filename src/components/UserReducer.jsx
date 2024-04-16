@@ -14,12 +14,21 @@ const userSlice = createSlice({
             if(updateUsers){
                 updateUsers.name = name;
                 updateUsers.email = email;
-            }
+            };
+        }, 
+        deleteUser:(state, action) => {
+            const {id} = action.payload;
+            const deleteUsers = state.find(user => user.id == id);
+            if(deleteUsers){
+                return state.filter( f => f.id !== id)
+            };
+
+
         }
 
 
     }
 })
 
-export const {addUser, updateUser} = userSlice.actions;
+export const {addUser, updateUser, deleteUser} = userSlice.actions;
 export default userSlice.reducer;

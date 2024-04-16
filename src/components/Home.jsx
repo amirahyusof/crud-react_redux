@@ -1,14 +1,16 @@
 import React from "react";
-import {useSelector} from 'react-redux';
+import {useSelector, useDispatch} from 'react-redux';
 import { Link } from "react-router-dom";
+import { deleteUser } from './UserReducer';
 
 
 function Home(){
-    const users = useSelector((state)=> state.users)
-    console.log(users);
+    const dispatch = useDispatch();
+    const users = useSelector((state)=> state.users);
 
 
-    const deleteUser = (id) => {
+    const handleDelete = (id) => {
+        dispatch(deleteUser({id:id}))
 
     }
     
@@ -33,7 +35,7 @@ function Home(){
                             <td>{user.email}</td>
                             <td>
                                 <Link className="btn btn-sm btn-primary" to={`/edit/${user.id}`}>Edit</Link>
-                                <button className="btn btn-sm btn-danger ms-2" onClick={()=>deleteUser(user.id)}>Delete</button>
+                                <button className="btn btn-sm btn-danger ms-2" onClick={() => handleDelete(user.id)}>Delete</button>
                             </td>
                         </tr>
                     ))}
