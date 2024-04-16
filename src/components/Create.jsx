@@ -10,13 +10,13 @@ function Create(){
     const [email, setEmail] = useState('');
 
     const users = useSelector((state)=> state.users);
-    const Navigate = useNavigate();
+    const navigate = useNavigate();
     const dispatch = useDispatch();
 
     const handleSubmit = (event) => {
         event.preventDefault();
         dispatch(addUser({id: users[users.length - 1].id + 1, name, email}));
-        Navigate('/')
+        navigate('/')
     }
 
     return(
