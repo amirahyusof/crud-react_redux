@@ -10,7 +10,7 @@ function Update(){
     const users = useSelector((state)=> state.users);
     const dispatch = useDispatch();
     
-    const existingUser = users.filter(f => f.id == id);
+    const existingUser = users.filter(f => f.id === id);
     const {name, email} = existingUser[0];
     const [updateName, setName] = useState(name);
     const [updateEmail, setEmail] = useState(email);
