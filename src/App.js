@@ -7,7 +7,7 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 function App() {
   return (
-    <BrowserRouter>
+    <BrowserRouter basename='/crud-react_redux'>
       <Routes>
         <Route path='/' element={<Home />} />
         <Route path='/create' element={<Create />}></Route>
