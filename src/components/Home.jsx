@@ -16,7 +16,7 @@ function Home(){
     
     return(
         <div className='container'>
-            <h1>CRUD System using Redux</h1>
+            <h1 className="pt-4">CRUD System using Redux</h1>
             <Link to='/create' className="btn btn-success my-3">Create +</Link>
             <table className='table'>
                 <thead>
